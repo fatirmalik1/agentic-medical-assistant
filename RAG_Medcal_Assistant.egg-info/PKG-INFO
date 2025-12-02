@@ -1,0 +1,16 @@
+Metadata-Version: 2.4
+Name: RAG-Medcal-Assistant
+Version: 0.2
+Author: Fatir
+Requires-Dist: langchain
+Requires-Dist: langchain_community
+Requires-Dist: langchain_huggingface
+Requires-Dist: langchain_groq
+Requires-Dist: faiss-cpu
+Requires-Dist: pypdf
+Requires-Dist: huggingface_hub
+Requires-Dist: flask
+Requires-Dist: python-dotenv
+Requires-Dist: sentence-transformers
+Dynamic: author
+Dynamic: requires-dist
