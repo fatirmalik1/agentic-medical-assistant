@@ -34,7 +34,7 @@ pipeline {
                     echo 'Building Docker image...'
                     def imageName = "${REGION}-docker.pkg.dev/${PROJECT_ID}/${REPOSITORY}/${SERVICE_NAME}:${IMAGE_TAG}"
                     sh """
-                        docker build -t ${imageName} .
+                        docker build --platform=linux/amd64 -t ${imageName} .
                     """
                 }
             }
