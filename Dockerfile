@@ -23,6 +23,9 @@ RUN pip install --no-cache-dir -e .
 ## Expose only flask port
 EXPOSE 5000
 
+## Expose port for external access (cloud run)
+EXPOSE 8080
+
 ## Run the Flask app
 CMD ["python", "app/application.py"]
 
