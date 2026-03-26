@@ -50,9 +50,9 @@ Use this before local runs or CI/CD:
 ```mermaid
 flowchart LR
   User[User in browser] -->|POST prompt| Flask[Flask routes in app/application.py]
-  Flask -->|create_qa_chain()| QA[RetrievalQA in app/components/retriever.py]
-  QA -->|load_vector_store()| FAISS[FAISS vector store in app/components/vector_store.py]
-  FAISS -->|as_retriever(k=1)| Retriever[Retriever]
+  Flask -->|"create_qa_chain()"| QA[RetrievalQA in app/components/retriever.py]
+  QA -->|"load_vector_store()"| FAISS[FAISS vector store in app/components/vector_store.py]
+  FAISS -->|"as_retriever(k=1)"| Retriever[Retriever]
   Retriever -->|context| LLM[Groq LLM in app/components/llm.py]
   LLM -->|answer text| Flask
   Flask -->|render_template| Browser[Browser renders response]
@@ -62,11 +62,11 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-  PDFs[PDF files in data/] -->|DirectoryLoader(glob="*.pdf")| Loader[PyPDFLoader]
+  PDFs[PDF files in data/] -->|"DirectoryLoader(*.pdf)"| Loader[PyPDFLoader]
   Loader -->|RecursiveCharacterTextSplitter| Splitter[Chunking]
-  Splitter -->|HuggingFaceEmbeddings (MiniLM)| Embeddings[Embeddings]
+  Splitter -->|"HuggingFaceEmbeddings (MiniLM)"| Embeddings[Embeddings]
   Embeddings -->|FAISS.from_documents| Index[FAISS index]
-  Index -->|db.save_local(DB_FAISS_PATH)| Store[Stored at vectorstore/db_faiss]
+  Index -->|"db.save_local(DB_FAISS_PATH)"| Store[Stored at vectorstore/db_faiss]
 ```
 
 ## What the repo runs
